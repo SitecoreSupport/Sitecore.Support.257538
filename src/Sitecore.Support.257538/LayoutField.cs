@@ -125,7 +125,9 @@ namespace Sitecore.Support.Data.Fields
                   {
                     renderingDefinition.Datasource = string.Empty;
                   }
-                  if (!string.IsNullOrEmpty(renderingDefinition.Parameters))
+                  #region Sitecore.Support.257538
+                  if (!string.IsNullOrEmpty(renderingDefinition.Parameters) && !string.IsNullOrEmpty(renderingDefinition.ItemID))
+                  #endregion
                   {
                     Item item = base.InnerField.Database.GetItem(renderingDefinition.ItemID);
                     if (item == null)
